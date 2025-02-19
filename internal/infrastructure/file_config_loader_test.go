@@ -26,7 +26,7 @@ port: 8080
 	tmpfile.Close()
 
 	loader := NewFileConfigLoader()
-	config, err := loader.Load(tmpfile.Name())
+	config, err := loader.LoadConfig(tmpfile.Name())
 	if err != nil {
 		t.Fatalf("expected no error, got: %v", err)
 	}
@@ -48,7 +48,7 @@ port: 8080
 func TestFileConfigLoader_Load_FileNotFound(t *testing.T) {
 	nonExistentFile := "nonexistent.yaml"
 	loader := NewFileConfigLoader()
-	_, err := loader.Load(nonExistentFile)
+	_, err := loader.LoadConfig(nonExistentFile)
 	if err == nil {
 		t.Fatalf("expected error for non-existent file, got nil")
 	}
@@ -73,7 +73,7 @@ invalid_yaml: [this, is, not: valid: yaml
 	tmpfile.Close()
 
 	loader := NewFileConfigLoader()
-	_, err = loader.Load(tmpfile.Name())
+	_, err = loader.LoadConfig(tmpfile.Name())
 	if err == nil {
 		t.Fatalf("expected error for invalid YAML content, got nil")
 	}

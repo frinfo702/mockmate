@@ -1,4 +1,4 @@
-package entitiy
+package entity
 
 type ServerConfig struct {
 	Host         string `yaml:"host"`
