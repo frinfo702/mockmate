@@ -1,3 +1,4 @@
+// cmd/mockmate/main.go
 package main
 
 import (
@@ -7,8 +8,7 @@ import (
 	"time"
 
 	"github.com/frinfo702/mockmate/internal/adapter/httpserver"
-	"github.com/frinfo702/mockmate/internal/domain/infrastructure"
-
+	"github.com/frinfo702/mockmate/internal/infrastructure"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 )
@@ -36,6 +36,7 @@ func main() {
 
 	// ダッシュボード用ルートの登録（静的ファイル配信＋API）
 	httpserver.RegisterDashboardRoutes(e)
+	initDashboard(e) // dashboard.go に定義
 
 	// サーバー起動設定
 	addr := fmt.Sprintf("%s:%d", cfg.Server.Host, cfg.Server.Port)

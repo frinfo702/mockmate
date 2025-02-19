@@ -1,3 +1,4 @@
+// internal/adapter/httpserver/handler.go
 package httpserver
 
 import (
@@ -13,7 +14,7 @@ func RegisterAPIRoutes(e *echo.Echo, cfg *entity.Config) {
 	// 各エンドポイントごとにルートを登録する
 	for _, ep := range cfg.EndPoints {
 		for _, ver := range ep.Versions {
-			// Capture variables for closure
+			// 変数をキャプチャ
 			method := ver.Method
 			path := ver.Path
 			response := ver.Response

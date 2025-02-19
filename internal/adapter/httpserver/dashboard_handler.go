@@ -1,3 +1,4 @@
+// internal/adapter/httpserver/dashboard_handler.go
 package httpserver
 
 import (
@@ -11,8 +12,7 @@ import (
 // RegisterDashboardRoutes registers routes for the dashboard API.
 func RegisterDashboardRoutes(e *echo.Echo) {
 	e.GET("/dashboard/config", func(c echo.Context) error {
-		// ここでは、シンプルに設定ファイル（default.yaml）の内容を返す例
-		// 実際には、内部で保持している設定情報を返す設計にする
+		// シンプルに設定ファイル（default.yaml）の内容を返す
 		cfg, err := loadConfigForDashboard("config/default.yaml")
 		if err != nil {
 			return c.JSON(http.StatusInternalServerError, map[string]string{"error": "failed to load config"})
