@@ -11,7 +11,7 @@ import (
 // RegisterAPIRoutes registers API routes based on the loaded config.
 func RegisterAPIRoutes(e *echo.Echo, cfg *entity.Config) {
 	// 各エンドポイントごとにルートを登録する
-	for _, ep := range cfg.Endpoints {
+	for _, ep := range cfg.EndPoints {
 		for _, ver := range ep.Versions {
 			// Capture variables for closure
 			method := ver.Method

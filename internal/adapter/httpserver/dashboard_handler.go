@@ -3,8 +3,8 @@ package httpserver
 import (
 	"net/http"
 
-	"github.com/frinfo702/mockmate/internal/domain/infrastructure"
 	"github.com/frinfo702/mockmate/internal/entity"
+	"github.com/frinfo702/mockmate/internal/infrastructure"
 	"github.com/labstack/echo/v4"
 )
 
